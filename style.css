@@ -1,0 +1,689 @@
+/*
+!* Warna dan variabel global untuk konsistensi desain *!
+:root {
+  --primary: #2e8b57;         !* Hijau utama untuk header dan elemen penting *!
+  --secondary: #f0fdf4;       !* Latar belakang lembut untuk bagian jadwal *!
+  --accent: #ffe082;          !* Warna aksen kuning untuk panduan *!
+  --danger: #ff6f61;          !* Warna merah untuk peringatan (jika dibutuhkan) *!
+  --text: #333;               !* Warna teks utama *!
+  --bg: #f9f9f9;              !* Warna latar umum *!
+  --card-bg: #ffffff;         !* Warna latar kartu *!
+}
+
+!* Gaya dasar untuk seluruh halaman *!
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+!* Header dan navigasi utama *!
+header {
+  !* Slider latar belakang untuk bagian hero *!
+.hero {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: white;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  animation: slide 12s infinite;
+}
+
+.slider figure {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 12s infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+!* Animasi fade *!
+@keyframes fade {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  25% { opacity: 1; }
+  33% { opacity: 0; }
+  100% { opacity: 0; }
+  .hero {
+  position: relative;
+  z-index: 1;
+}
+}
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+!* Navigasi horizontal *!
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+!* Tautan navigasi *!
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent); !* Warna berubah saat hover *!
+}
+
+!* Bagian hero (judul utama) *!
+.hero {
+  background: linear-gradient(to right, #dff0d8, #e0f7fa);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+container {
+  padding: 2rem;
+  position: relative;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+.slider {
+  display: flex;
+  aspect-ratio: 16/9;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0, 0.25);
+  border-radius: 0.5rem;
+  flex: 1 0 100%;
+  
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+  .slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px;
+}
+
+.slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 300px; !* Ukuran slide *!
+}
+
+.slide img {
+  width: 80%;       !* Perkecil gambar di dalam slide *!
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: lrem;
+  position: absolute;
+  bottom: 1,25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  .slider-nav a {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+  }
+  .image-container {
+  width: 80%;    
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+}
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+!* Kategori sampah (organik, anorganik, B3) *!
+.kategori {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+}
+!* Kartu kategori *!
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px); !* Efek melayang saat hover *!
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+!* Bagian jadwal *!
+.jadwal {
+  padding: 2rem;
+  background-color: var(--secondary);
+}
+
+.jadwal h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+!* Setiap item jadwal *!
+.jadwal-item {
+  background-color: var(--card-bg);
+  border-left: 5px solid var(--primary);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+!* Bagian panduan *!
+.panduan {
+  padding: 2rem;
+  background-color: var(--accent);
+}
+
+.panduan h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.panduan ul {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+}
+
+!* Footer *!
+footer {
+  background-color: var(--primary);
+  color: rgb(245, 251, 250);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+ .content-text {
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #161716;
+  text-align: justify;
+  padding: 10px 20px;
+  background-color: rgb(100, 195, 157)
+}
+!* Efek Scroll Masuk *!
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+!* Gaya Umum *!
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #e8f5e9, #ffffff);
+  color: #2e7d32;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+!* Kartu Manfaat *!
+.card {
+  background-color: #ffffff;
+  border-left: 6px solid #81c784;
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+!* Judul dan Paragraf *!
+.card h2 {
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+!* Tombol Interaktif *!
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #090909;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.content-text {
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #161716;
+  text-align: justify;
+  padding: 10px 20px;
+  background-color: rgb(100, 195, 157)
+  
+.button:hover {
+  background-color: #1d481f;
+}
+*/
+/* =============================
+   GLOBAL STYLE
+============================= */
+:root {
+    --primary: #2e8b57;
+    --secondary: #f0fdf4;
+    --accent: #ffe082;
+    --danger: #ff6f61;
+    --text: #333;
+    --bg: #f9f9f9;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #ffffff);
+    color: #2e7d32;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* =============================
+   HEADER & NAV
+============================= */
+header {
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* =============================
+   HERO
+============================= */
+.hero {
+    background: linear-gradient(to right, #dff0d8, #e0f7fa);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #2e7d32;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* =============================
+   SLIDER AUTO
+============================= */
+/* Slider full-width */
+.container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.slider {
+    width: 100%;
+    height: 400px;       /* bisa kamu atur sesuai keinginan */
+    overflow: hidden;
+    position: relative;
+    border-radius: 0;    /* hilangkan sudut bulat kalau mau menempel penuh */
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    animation: slide 15s infinite;
+}
+
+/* urutan slide muncul bergantian */
+.slider img:nth-child(1) { animation-delay: 0s; }
+.slider img:nth-child(2) { animation-delay: 5s; }
+.slider img:nth-child(3) { animation-delay: 10s; }
+
+/* Keyframe animasi */
+@keyframes slide {
+    0%   { opacity: 0; }
+    8%   { opacity: 1; }
+    33%  { opacity: 1; }
+    41%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* =============================
+   KATEGORI CARD
+============================= */
+.kategori {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-left: 6px solid #81c784;
+    width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* =============================
+   JADWAL
+============================= */
+.jadwal {
+    padding: 2rem;
+    background-color: var(--secondary);
+}
+
+.jadwal h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.jadwal-item {
+    background-color: var(--card-bg);
+    border-left: 5px solid var(--primary);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* =============================
+   PANDUAN
+============================= */
+.panduan {
+    padding: 2rem;
+    background-color: var(--accent);
+}
+
+.panduan h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.panduan ul {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+}
+
+/* =============================
+   FOOTER
+============================= */
+footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+video, iframe {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  flex: 1;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0fff4;
+  padding: 20px;
+}
+
+/* Box setiap jadwal */
+.jadwal {
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Container marquee */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background: #d9fce1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Teks berjalan */
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: berjalan 10s linear infinite;
+  font-size: 22px;
+  font-weight: bold;
+  color: #006622;
+}
+
+@keyframes berjalan {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+animation: berjalan 10s linear infinite;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.kolom {
+  background-color: #fff176; /* kuning */
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.kolom a {
+  color: #e95432; /* orange */
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.kolom a:hover {
+  color: #628c14;
+  text-decoration: underline;
+}
+.banner {
+    background-color: #f0f7ff;      /* warna background */
+    padding: 15px 20px;             
+    border-radius: 10px;            /* sudut melengkung */
+    border-left: 5px solid #39d92a; /* garis aksen kiri */
+    display: inline-block;          /* supaya ukuran mengikuti teks */
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+}
+/* Container umum supaya teksnya rapi dan enak dibaca */
+.banner {
+    background: #8cfaba;              /* warna lembut */
+    padding: 15px 20px;               
+    border-left: 5px solid #63ec81;   /* aksen hijau kiri */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Judul besar */
+.banner h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #88f584;
+    margin-bottom: 10px;
+}
+
+/* Subjudul */
+.banner h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: #85febe;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* List */
+.banner ul, 
+.banner ol {
+    margin-left: 20px;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    color: #aaeb84;
+}
+
+/* Nomor / bullet rapi */
+.banner li {
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+.banner{
+    text-align: center;
+}
+
+.banner ol,
+. ul {
+    display: inline-block;
+    text-align: center;
+}
+
+.contact-section {
+  text-align: center;
+}
+
